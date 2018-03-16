@@ -1,0 +1,10 @@
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/install/strip.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/list_install_components.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/steering-core.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/install/local.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/steering.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/test.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/install.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/steering-runner.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/rebuild_cache.dir
+/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/edit_cache.dir
