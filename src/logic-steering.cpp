@@ -34,7 +34,7 @@ float Steering::decode(const std::string &data) noexcept {
     return temp;
 }
 
-Steering::Steering()
+Steering::Steering(float pconst, float iconst, float tolerance)
     : m_debug(1)
     , m_initialised()
     , m_groundSteeringRequest()
@@ -45,6 +45,10 @@ Steering::Steering()
     , m_steerCurrent()
     , m_steerPosition()
     , m_steerVoltage()
+    , m_iControlOld()
+    , m_pConst(pconst)
+    , m_iConstTI(iconst)
+    , m_tolerance(tolerance)
 
 {
 	Steering::setUp();
@@ -61,7 +65,8 @@ void Steering::callOnReceive(cluon::data::Envelope data){
     }
     if (data.dataType() == static_cast<int32_t>(opendlv::proxy::GroundSteeringRequest::ID())) {
         opendlv::proxy::GroundSteeringRequest steeringReq = cluon::extractMessage<opendlv::proxy::GroundSteeringRequest>(std::move(data));
-        m_groundSteeringRequest = steeringReq.groundSteering();
+        if (steeringReq.groundSteering() > -21 && steeringReq.groundSteering() < 21)
+            m_groundSteeringRequest = steeringReq.groundSteering();
 
         std::cout << "[LOGIC-STEERING] Steering Request:" << m_groundSteeringRequest << std::endl;
     }else if (data.dataType() == static_cast<int32_t>(opendlv::proxy::VoltageReading::ID())) {
@@ -89,27 +94,40 @@ void Steering::body(cluon::OD4Session &od4)
 {
         
     float steerError = m_groundSteeringRequest-m_steerPosition;
+    float pControl = m_pConst * steerError;
+    float iControl = 0;
 
-    m_steeringCurrentDuty = 50000;
+    if (abs((int) pControl) < 10000){
+          iControl = (float) (pControl*m_iConstTS/m_iConstTI+m_iControlOld);
+    } 
 
-    if (steerError < 2.5 && steerError > 0){
-	m_steeringCurrentDuty = (uint32_t) round(5000 * steerError);
-    } else if (steerError < 0 && steerError > -2.5){
-        m_steeringCurrentDuty = (uint32_t) round(-5000 * steerError);
+    if (iControl > 25000){
+        iControl = 25000;
+    } else if(iControl < -25000){
+        iControl = -25000;
     }
 
+    m_iControlOld = iControl;
 
+    float controlSignal = pControl + iControl;
 
-    if (steerError > 0.25){
-      m_steerRight = false;
-    }else if (steerError < -0.25){
-      m_steerRight = true;
-    } else {
+    m_steeringCurrentDuty = (uint32_t) abs((int)round(controlSignal));
+
+    if (m_steeringCurrentDuty > 50000){
+        m_steeringCurrentDuty = 50000;
+    }
+
+    m_steerRight = controlSignal < 0;
+     
+    if(steerError > -m_tolerance && steerError < m_tolerance) {
       m_steeringCurrentDuty = 0;
+      iControl = 0;
     }
 
      std::cout << "[LOGIC-STEERING] Error: " << steerError 
 				<< "\t Duty: " << m_steeringCurrentDuty 
+                << "\t pControl: " << pControl 
+                << "\t iControl: " << iControl 
 				<< "\t Direction: " << m_steerRight
 				<< "\t Request: " << m_groundSteeringRequest
 				<< "\t Measure: " << m_steerPosition 

@@ -33,7 +33,7 @@ class Steering {
     //Steering &operator=(Steering &&) = delete;
 
    public:
-    Steering();
+    Steering(float pconst, float iconst, float tolerance);
     ~Steering();
 
    public:
@@ -55,6 +55,10 @@ class Steering {
     float m_steerCurrent;
     float m_steerPosition;
     float m_steerVoltage;
+    float m_iControlOld;
+    float m_pConst;
+    float m_iConstTI;
+    float m_tolerance;
 
     //const uint16_t m_gpioPinSteerLeft = 47;
     const uint16_t m_gpioPinSteerRight = 46;
@@ -67,6 +71,8 @@ class Steering {
     const double m_analogConvSteerPosition = 82.362;
     const double m_analogConvSteerVoltage = 1;
     const double m_analogOffsetSteerPosition = 25;
+    const double m_iConstTS = 0.03;
+    
 };
 
 #endif
