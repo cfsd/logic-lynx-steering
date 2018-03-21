@@ -83,10 +83,10 @@ class Steering {
     const uint16_t m_analogPinSteerPositionRack = 6;
 
     const double m_analogConvSteerCurrent = 1;
-    const double m_analogConvSteerPosition = 82.362;
-    const double m_analogConvSteerPositionRack = 81.253;
-    const double m_analogOffsetSteerPosition = 25;
-    const double m_analogOffsetSteerPositionRack = 27.408;
+    const double m_analogConvSteerPosition = 80.38;
+    const double m_analogConvSteerPositionRack = 80.86;
+    const double m_analogOffsetSteerPosition = 27.74;
+    const double m_analogOffsetSteerPositionRack = 28.06;
     const double m_iConstTS = 0.03;
     
 };
