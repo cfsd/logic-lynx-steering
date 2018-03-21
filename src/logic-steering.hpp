@@ -42,8 +42,11 @@ class Steering {
     void body(cluon::OD4Session &od4);
 
    private:
+    bool controlPosition(cluon::OD4Session &od4, float setPoint);
+    void findRack(cluon::OD4Session &od4);
     void setUp();
     void tearDown();
+    
 
     bool m_debug;
     bool m_initialised;
@@ -54,23 +57,36 @@ class Steering {
     //bool m_steerSelect;
     float m_steerCurrent;
     float m_steerPosition;
+    float m_steerPositionRack;
     float m_steerVoltage;
     float m_iControlOld;
     float m_pConst;
     float m_iConstTI;
     float m_tolerance;
+    bool m_clamped;
+    int m_findRackSeqNo;
+    float m_findRackTuning;
+    bool m_asms;
+    bool m_clampExtended;
+
 
     //const uint16_t m_gpioPinSteerLeft = 47;
     const uint16_t m_gpioPinSteerRight = 46;
     //const uint16_t m_gpioPinSteerSelect = 26;
+    const uint16_t m_gpioPinAsms = 115;
+    const uint16_t m_gpioPinClampSensor = 112;
+    const uint16_t m_gpioPinClamp = 65;
     const uint16_t m_pwmPinSteer = 40;
+
     const uint16_t m_analogPinSteerCurrent = 4;
     const uint16_t m_analogPinSteerPosition = 0;
-    const uint16_t m_analogPinSteerVoltage = 6;
+    const uint16_t m_analogPinSteerPositionRack = 6;
+
     const double m_analogConvSteerCurrent = 1;
     const double m_analogConvSteerPosition = 82.362;
-    const double m_analogConvSteerVoltage = 1;
+    const double m_analogConvSteerPositionRack = 81.253;
     const double m_analogOffsetSteerPosition = 25;
+    const double m_analogOffsetSteerPositionRack = 27.408;
     const double m_iConstTS = 0.03;
     
 };

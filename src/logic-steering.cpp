@@ -44,11 +44,17 @@ Steering::Steering(float pconst, float iconst, float tolerance)
     //, m_steerSelect(0)
     , m_steerCurrent()
     , m_steerPosition()
+    , m_steerPositionRack()
     , m_steerVoltage()
     , m_iControlOld()
     , m_pConst(pconst)
     , m_iConstTI(iconst)
     , m_tolerance(tolerance)
+    , m_clamped()
+    , m_findRackSeqNo()
+    , m_findRackTuning()
+    , m_asms()
+    , m_clampExtended()
 
 {
 	Steering::setUp();
@@ -79,12 +85,22 @@ void Steering::callOnReceive(cluon::data::Envelope data){
           opendlv::proxy::VoltageReading analogInput = cluon::extractMessage<opendlv::proxy::VoltageReading>(std::move(data));
           m_steerPosition = analogInput.torque()/((float) m_analogConvSteerPosition)-((float) m_analogOffsetSteerPosition);
           // std::cout << "[LOGIC-STEERING-POSITION] Position reading:" << m_steerPosition << std::endl;
-        }else if (data.senderStamp() == m_analogPinSteerVoltage){
+        }else if (data.senderStamp() == m_analogPinSteerPositionRack){
           opendlv::proxy::VoltageReading analogInput = cluon::extractMessage<opendlv::proxy::VoltageReading>(std::move(data));
-          m_steerVoltage = analogInput.torque()/((float) m_analogConvSteerVoltage);
+          m_steerPositionRack = analogInput.torque()/((float) m_analogConvSteerPositionRack)-((float) m_analogOffsetSteerPositionRack);
          // std::cout << "[LOGIC-STEERING-VOLTAGE] Voltage reading:" << m_steerVoltage << std::endl;
         }
-    }
+    }else if (data.dataType() == static_cast<int32_t>(opendlv::proxy::SwitchStateReading::ID())) {
+        uint16_t pin = data.senderStamp();
+        if (pin == m_gpioPinClampSensor){
+            opendlv::proxy::SwitchStateReading gpioState = cluon::extractMessage<opendlv::proxy::SwitchStateReading>(std::move(data));
+            m_clampExtended = gpioState.state();
+        }else if (pin == m_gpioPinAsms){
+            opendlv::proxy::SwitchStateReading gpioState = cluon::extractMessage<opendlv::proxy::SwitchStateReading>(std::move(data));
+            m_asms = gpioState.state();
+        }
+        //std::cout << "[LOGIC-STEERING-VOLTAGE] The read pin: " << pin << " state:" << value << std::endl;
+     }
 
     
 
@@ -92,8 +108,44 @@ void Steering::callOnReceive(cluon::data::Envelope data){
 
 void Steering::body(cluon::OD4Session &od4)
 {
-        
-    float steerError = m_groundSteeringRequest-m_steerPosition;
+   // if (m_steerPositionRack > -22 && m_steerPositionRack < 22)
+   //     controlPosition(od4, m_steerPositionRack);
+
+    if (m_clamped){
+        controlPosition(od4, m_groundSteeringRequest);
+    } else if (m_asms){
+        findRack(od4);
+    }
+
+    if (!m_asms){
+        m_findRackSeqNo = 0;
+        m_clamped = false;
+	m_findRackTuning = 0;
+	controlPosition(od4, m_steerPosition);
+
+    	std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
+    	cluon::data::TimeStamp sampleTime = cluon::time::convert(tp);
+    	int16_t senderStamp = 0;
+
+    	opendlv::proxy::SwitchStateRequest msgGpio;
+
+    	senderStamp = m_gpioPinClamp;
+    	msgGpio.state(false);
+	od4.send(msgGpio, sampleTime, senderStamp);
+    
+     }
+}
+
+bool Steering::controlPosition(cluon::OD4Session &od4, float setPoint)
+{
+    if (setPoint < -21){
+        setPoint = -21;
+    }else if (setPoint > 21){
+        setPoint = 21;
+    }
+
+    bool ret = false;
+    float steerError = setPoint-m_steerPosition;
     float pControl = m_pConst * steerError;
     float iControl = 0;
 
@@ -122,6 +174,7 @@ void Steering::body(cluon::OD4Session &od4)
     if(steerError > -m_tolerance && steerError < m_tolerance) {
       m_steeringCurrentDuty = 0;
       iControl = 0;
+      ret = true;
     }
 
      std::cout << "[LOGIC-STEERING] Error: " << steerError 
@@ -129,7 +182,7 @@ void Steering::body(cluon::OD4Session &od4)
                 << "\t pControl: " << pControl 
                 << "\t iControl: " << iControl 
 				<< "\t Direction: " << m_steerRight
-				<< "\t Request: " << m_groundSteeringRequest
+				<< "\t Request: " << setPoint
 				<< "\t Measure: " << m_steerPosition 
 				<< std::endl;
 
@@ -150,6 +203,47 @@ void Steering::body(cluon::OD4Session &od4)
     senderStamp = m_pwmPinSteer;
     msgPwm.dutyCycleNs(m_steeringCurrentDuty);
     od4.send(msgPwm, sampleTime, senderStamp);
+    return ret;
+
+}
+
+void Steering::findRack(cluon::OD4Session &od4)
+{
+    bool clamp = false;
+    switch(m_findRackSeqNo){
+        case 0: // 
+            if (controlPosition(od4, m_steerPositionRack+(float) 0.75))
+                m_findRackSeqNo = 10;
+            break;
+
+        case 10:
+            clamp = true;
+            if (controlPosition(od4, m_steerPositionRack+(float) 0.75 - m_findRackTuning))
+                m_findRackTuning += (float) 0.1;
+            
+            if (m_clampExtended)
+                m_findRackSeqNo = 20;
+            break;
+        case 20:
+	    clamp = true;
+            m_findRackTuning = 0;
+            m_clamped = true;
+            break;
+
+
+        default:
+        break;
+    }
+
+    std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
+    cluon::data::TimeStamp sampleTime = cluon::time::convert(tp);
+    int16_t senderStamp = 0;
+
+    opendlv::proxy::SwitchStateRequest msgGpio;
+
+    senderStamp = m_gpioPinClamp;
+    msgGpio.state(clamp);
+    od4.send(msgGpio, sampleTime, senderStamp);
 
 
 }

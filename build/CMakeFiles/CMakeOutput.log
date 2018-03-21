@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/lynx/bbb_files/code/logi
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_82534/fast"
-/usr/bin/make -f CMakeFiles/cmTC_82534.dir/build.make CMakeFiles/cmTC_82534.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c864b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c864b.dir/build.make CMakeFiles/cmTC_c864b.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_82534.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_82534.dir/testCCompiler.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_82534
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82534.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_82534.dir/testCCompiler.c.o  -o cmTC_82534 
+Building C object CMakeFiles/cmTC_c864b.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_c864b.dir/testCCompiler.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_c864b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c864b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c864b.dir/testCCompiler.c.o  -o cmTC_c864b 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_cd5f8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_cd5f8.dir/build.make CMakeFiles/cmTC_cd5f8.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a4b4b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a4b4b.dir/build.make CMakeFiles/cmTC_a4b4b.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_cd5f8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd5f8.dir/link.txt --verbose=1
-/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o  -o cmTC_cd5f8 
+Building C object CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_a4b4b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4b4b.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o  -o cmTC_a4b4b 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper
@@ -59,9 +59,9 @@ Thread model: posix
 gcc version 7.2.1 20180116 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/
 LIBRARY_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_cd5f8' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
- /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8YkFE3.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_cd5f8 /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_cd5f8' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a4b4b' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
+ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbRrv8G.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_a4b4b /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a4b4b' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -69,14 +69,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_cd5f8/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_cd5f8.dir/build.make CMakeFiles/cmTC_cd5f8.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_a4b4b/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_a4b4b.dir/build.make CMakeFiles/cmTC_a4b4b.dir/build]
   ignore line: [make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_cd5f8]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd5f8.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o  -o cmTC_cd5f8 ]
+  ignore line: [Building C object CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_a4b4b]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a4b4b.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o  -o cmTC_a4b4b ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper]
@@ -86,13 +86,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.2.1 20180116 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_cd5f8' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu']
-  link line: [ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc8YkFE3.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_cd5f8 /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_a4b4b' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu']
+  link line: [ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbRrv8G.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_a4b4b /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o]
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc8YkFE3.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccbRrv8G.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -109,13 +109,13 @@ Parsed C implicit link information from above output:
     arg [armelf_linux_eabi] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_cd5f8] ==> ignore
+    arg [cmTC_a4b4b] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o] ==> ignore
     arg [-L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1] ==> dir [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1]
     arg [-L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../..] ==> dir [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../..]
-    arg [CMakeFiles/cmTC_cd5f8.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_a4b4b.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -139,14 +139,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6dd61/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6dd61.dir/build.make CMakeFiles/cmTC_6dd61.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_f9ede/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f9ede.dir/build.make CMakeFiles/cmTC_f9ede.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6dd61.dir/feature_tests.c.o
-/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_6dd61.dir/feature_tests.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_6dd61
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6dd61.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_6dd61.dir/feature_tests.c.o  -o cmTC_6dd61 
+Building C object CMakeFiles/cmTC_f9ede.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_f9ede.dir/feature_tests.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f9ede
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9ede.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f9ede.dir/feature_tests.c.o  -o cmTC_f9ede 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -159,14 +159,14 @@ make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fad61/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fad61.dir/build.make CMakeFiles/cmTC_fad61.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_94571/fast"
+/usr/bin/make -f CMakeFiles/cmTC_94571.dir/build.make CMakeFiles/cmTC_94571.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fad61.dir/feature_tests.c.o
-/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_fad61.dir/feature_tests.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_fad61
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fad61.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_fad61.dir/feature_tests.c.o  -o cmTC_fad61 
+Building C object CMakeFiles/cmTC_94571.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_94571.dir/feature_tests.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_94571
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_94571.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_94571.dir/feature_tests.c.o  -o cmTC_94571 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -179,14 +179,14 @@ make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c60c8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c60c8.dir/build.make CMakeFiles/cmTC_c60c8.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_b109a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b109a.dir/build.make CMakeFiles/cmTC_b109a.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c60c8.dir/feature_tests.c.o
-/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_c60c8.dir/feature_tests.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_c60c8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c60c8.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c60c8.dir/feature_tests.c.o  -o cmTC_c60c8 
+Building C object CMakeFiles/cmTC_b109a.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_b109a.dir/feature_tests.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_b109a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b109a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b109a.dir/feature_tests.c.o  -o cmTC_b109a 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -197,28 +197,28 @@ make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_724bf/fast"
-/usr/bin/make -f CMakeFiles/cmTC_724bf.dir/build.make CMakeFiles/cmTC_724bf.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_d68cb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d68cb.dir/build.make CMakeFiles/cmTC_d68cb.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_724bf.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_724bf.dir/testCXXCompiler.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_724bf
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_724bf.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_724bf.dir/testCXXCompiler.cxx.o  -o cmTC_724bf 
+Building CXX object CMakeFiles/cmTC_d68cb.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_d68cb.dir/testCXXCompiler.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_d68cb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d68cb.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_d68cb.dir/testCXXCompiler.cxx.o  -o cmTC_d68cb 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_aff29/fast"
-/usr/bin/make -f CMakeFiles/cmTC_aff29.dir/build.make CMakeFiles/cmTC_aff29.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_0f6df/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0f6df.dir/build.make CMakeFiles/cmTC_0f6df.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++     -o CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_aff29
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aff29.dir/link.txt --verbose=1
-/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aff29 
+Building CXX object CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_0f6df
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f6df.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0f6df 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper
@@ -228,9 +228,9 @@ Thread model: posix
 gcc version 7.2.1 20180116 (GCC) 
 COMPILER_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/
 LIBRARY_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_aff29' '-shared-libgcc' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
- /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc5l3C3l.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_aff29 /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_aff29' '-shared-libgcc' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0f6df' '-shared-libgcc' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
+ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccutHvgb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_0f6df /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0f6df' '-shared-libgcc' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu'
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -238,14 +238,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_aff29/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_aff29.dir/build.make CMakeFiles/cmTC_aff29.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_0f6df/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_0f6df.dir/build.make CMakeFiles/cmTC_0f6df.dir/build]
   ignore line: [make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_aff29]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aff29.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_aff29 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_0f6df]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0f6df.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_0f6df ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper]
@@ -255,13 +255,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.2.1 20180116 (GCC) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/:/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_aff29' '-shared-libgcc' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu']
-  link line: [ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cc5l3C3l.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_aff29 /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_0f6df' '-shared-libgcc' '-march=armv7-a' '-mfloat-abi=hard' '-mfpu=vfpv3-d16' '-mtls-dialect=gnu']
+  link line: [ /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2 -plugin /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccutHvgb.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -export-dynamic -dynamic-linker /lib/ld-linux-armhf.so.3 -X -m armelf_linux_eabi -pie -o cmTC_0f6df /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1 -L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../.. CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtendS.o /usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crtn.o]
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc5l3C3l.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccutHvgb.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -278,13 +278,13 @@ Parsed CXX implicit link information from above output:
     arg [armelf_linux_eabi] ==> ignore
     arg [-pie] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_aff29] ==> ignore
+    arg [cmTC_0f6df] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../../crti.o] ==> ignore
     arg [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/crtbeginS.o] ==> ignore
     arg [-L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1] ==> dir [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1]
     arg [-L/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../..] ==> dir [/usr/lib/gcc/armv7l-unknown-linux-gnueabihf/7.2.1/../../..]
-    arg [CMakeFiles/cmTC_aff29.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_0f6df.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -306,14 +306,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ce163/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ce163.dir/build.make CMakeFiles/cmTC_ce163.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_bb8b1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_bb8b1.dir/build.make CMakeFiles/cmTC_bb8b1.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ce163.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_ce163.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_ce163
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce163.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_ce163.dir/feature_tests.cxx.o  -o cmTC_ce163 
+Building CXX object CMakeFiles/cmTC_bb8b1.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_bb8b1.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_bb8b1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb8b1.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_bb8b1.dir/feature_tests.cxx.o  -o cmTC_bb8b1 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -379,14 +379,14 @@ make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c44d6/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c44d6.dir/build.make CMakeFiles/cmTC_c44d6.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_251de/fast"
+/usr/bin/make -f CMakeFiles/cmTC_251de.dir/build.make CMakeFiles/cmTC_251de.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_c44d6.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_c44d6.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_c44d6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c44d6.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_c44d6.dir/feature_tests.cxx.o  -o cmTC_c44d6 
+Building CXX object CMakeFiles/cmTC_251de.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_251de.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_251de
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_251de.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_251de.dir/feature_tests.cxx.o  -o cmTC_251de 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -452,14 +452,14 @@ make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_ce7e7/fast"
-/usr/bin/make -f CMakeFiles/cmTC_ce7e7.dir/build.make CMakeFiles/cmTC_ce7e7.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c1a6b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c1a6b.dir/build.make CMakeFiles/cmTC_c1a6b.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ce7e7.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_ce7e7.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_ce7e7
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce7e7.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_ce7e7.dir/feature_tests.cxx.o  -o cmTC_ce7e7 
+Building CXX object CMakeFiles/cmTC_c1a6b.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_c1a6b.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c1a6b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c1a6b.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_c1a6b.dir/feature_tests.cxx.o  -o cmTC_c1a6b 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -525,14 +525,14 @@ make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_97928/fast"
-/usr/bin/make -f CMakeFiles/cmTC_97928.dir/build.make CMakeFiles/cmTC_97928.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_78c3d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_78c3d.dir/build.make CMakeFiles/cmTC_78c3d.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_97928.dir/feature_tests.cxx.o
-/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_97928.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_97928
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97928.dir/link.txt --verbose=1
-/usr/bin/c++       -rdynamic CMakeFiles/cmTC_97928.dir/feature_tests.cxx.o  -o cmTC_97928 
+Building CXX object CMakeFiles/cmTC_78c3d.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_78c3d.dir/feature_tests.cxx.o -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_78c3d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78c3d.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_78c3d.dir/feature_tests.cxx.o  -o cmTC_78c3d 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
@@ -596,14 +596,14 @@ make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/
 Determining if the include file pthread.h exists passed with the following output:
 Change Dir: /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_89b34/fast"
-/usr/bin/make -f CMakeFiles/cmTC_89b34.dir/build.make CMakeFiles/cmTC_89b34.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_8920c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8920c.dir/build.make CMakeFiles/cmTC_8920c.dir/build
 make[1]: Entering directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_89b34.dir/CheckIncludeFile.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_89b34.dir/CheckIncludeFile.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_89b34
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89b34.dir/link.txt --verbose=1
-/usr/bin/cc    -static-libgcc -static-libstdc++  -rdynamic CMakeFiles/cmTC_89b34.dir/CheckIncludeFile.c.o  -o cmTC_89b34 
+Building C object CMakeFiles/cmTC_8920c.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_8920c.dir/CheckIncludeFile.c.o   -c /home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_8920c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8920c.dir/link.txt --verbose=1
+/usr/bin/cc    -static-libgcc -static-libstdc++  -rdynamic CMakeFiles/cmTC_8920c.dir/CheckIncludeFile.c.o  -o cmTC_8920c 
 make[1]: Leaving directory '/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles/CMakeTmp'
 
 
