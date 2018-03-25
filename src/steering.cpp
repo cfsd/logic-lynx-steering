@@ -35,22 +35,22 @@ int32_t main(int32_t argc, char **argv) {
     if ((0 == commandlineArguments.count("port")) || (0 == commandlineArguments.count("cid")) || (0 == commandlineArguments.count("pconst")) || (0 == commandlineArguments.count("iconst")) || (0 == commandlineArguments.count("tolerance"))) {
         std::cerr << argv[0] << " testing unit and publishes it to a running OpenDaVINCI session using the OpenDLV Standard Message Set." << std::endl;
         std::cerr << "Usage:   " << argv[0] << " --port=<udp port>--cid=<OpenDaVINCI session> [--id=<Identifier in case of multiple beaglebone units>] [--verbose]" << std::endl;
-        std::cerr << "Example: " << argv[0] << " --port=8884 --cid=111 --id=1 --verbose=1 --pconst=5000 --iconst=0.5 --tolerance=0.1" << std::endl;
+        std::cerr << "Example: " << argv[0] << " --port=8884 --cid=111 --id=1 --verbose=1 --freq=30 --pconst=10000 --iconst=0.5 --tolerance=0.1" << std::endl;
         retCode = 1;
     } else {
         const uint32_t ID{(commandlineArguments["id"].size() != 0) ? static_cast<uint32_t>(std::stoi(commandlineArguments["id"])) : 0};
         const bool VERBOSE{commandlineArguments.count("verbose") != 0};
+        const double FREQ{static_cast<double>(std::stof(commandlineArguments["freq"]))};
         std::cout << "Micro-Service ID:" << ID << std::endl;
 
         // Interface to a running OpenDaVINCI session.
-        Steering steering(std::stof(commandlineArguments["pconst"]), std::stof(commandlineArguments["iconst"]), std::stof(commandlineArguments["tolerance"]));
+        Steering steering(VERBOSE, ID, std::stof(commandlineArguments["pconst"]), std::stof(commandlineArguments["iconst"]), std::stof(commandlineArguments["tolerance"]));
 
         cluon::data::Envelope data;
         cluon::OD4Session od4{static_cast<uint16_t>(std::stoi(commandlineArguments["cid"])),
             [&data, &steer = steering](cluon::data::Envelope &&envelope){
                 steer.callOnReceive(envelope);
                 // IMPORTANT INTRODUCE A MUTEX
-                data = envelope;
             }
         };
 
@@ -63,31 +63,25 @@ int32_t main(int32_t argc, char **argv) {
             
             cluon::data::TimeStamp sampleTime = cluon::time::convert(tp);
             std::time_t epoch_time = std::chrono::system_clock::to_time_t(tp);
-            std::cout << "Time: " << std::ctime(&epoch_time) << std::endl;
+            std::cout << "[UDP] Time: " << std::ctime(&epoch_time) << std::endl;
             float groundSteer = steer.decode(d);
 
             opendlv::proxy::GroundSteeringRequest msg;
             msg.groundSteering(groundSteer);
             od4Session.send(msg, sampleTime, senderStamp);
-	    std::cout << "Message sent: " << groundSteer << std::endl;
-            //     // Print values on console.
-            //     if (VERBOSE) {
-            //         std::stringstream buffer;
-            //         msg1.accept([](uint32_t, const std::string &, const std::string &) {},
-            //                    [&buffer](uint32_t, std::string &&, std::string &&n, auto v) { buffer << n << " = " << v << '\n'; },
-            //                    []() {});
-            //         std::cout << buffer.str() << std::endl;
-            //     }
-            // }
+	    std::cout << "[UDP] Message sent: " << groundSteer << std::endl;
         });
 
         // Just sleep as this microservice is data driven.
         using namespace std::literals::chrono_literals;
-        // uint32_t count = 0;
-        while (od4.isRunning()) {
-            std::this_thread::sleep_for(30ms);
-            steering.body(od4);
 
+        std::chrono::system_clock::time_point threadTime = std::chrono::system_clock::now();
+        while (od4.isRunning()) {
+            
+            std::this_thread::sleep_until(std::chrono::duration<double>(1/FREQ)+threadTime);
+            threadTime = std::chrono::system_clock::now();
+
+            steering.body(od4);
         }
     }
     return retCode;

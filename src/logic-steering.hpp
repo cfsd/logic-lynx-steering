@@ -15,8 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef PWM
-#define PWM
+#ifndef STEERING
+#define STEERING
 
 #include "opendlv-standard-message-set.hpp"
 
@@ -33,7 +33,7 @@ class Steering {
     //Steering &operator=(Steering &&) = delete;
 
    public:
-    Steering(float pconst, float iconst, float tolerance);
+    Steering(bool verbose, uint32_t id, float pconst, float iconst, float tolerance);
     ~Steering();
 
    public:
@@ -49,6 +49,10 @@ class Steering {
     
 
     bool m_debug;
+    uint32_t m_bbbId;
+    uint32_t m_senderStampOffsetGpio;
+    uint32_t m_senderStampOffsetAnalog;
+    uint32_t m_senderStampOffsetPwm;
     bool m_initialised;
     float m_groundSteeringRequest;
     uint32_t m_steeringCurrentDuty;

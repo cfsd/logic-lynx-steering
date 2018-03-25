@@ -63,9 +63,9 @@ opendlv-standard-message-set.cpp: cluon-msc
 	/home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-msc --cpp-sources --cpp-add-include-file=opendlv-standard-message-set.hpp --out=/home/lynx/bbb_files/code/logic-lynx-steering/build/opendlv-standard-message-set.cpp /home/lynx/bbb_files/code/logic-lynx-steering/src/opendlv-standard-message-set-v0.9.1.odvd
 	/home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-msc --cpp-headers --out=/home/lynx/bbb_files/code/logic-lynx-steering/build/opendlv-standard-message-set.hpp /home/lynx/bbb_files/code/logic-lynx-steering/src/opendlv-standard-message-set-v0.9.1.odvd
 
-cluon-msc: ../src/cluon-complete-v0.0.46.hpp
+cluon-msc: ../src/cluon-complete-v0.0.52.hpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/lynx/bbb_files/code/logic-lynx-steering/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating cluon-msc"
-	/usr/bin/cmake -E create_symlink /home/lynx/bbb_files/code/logic-lynx-steering/src/cluon-complete-v0.0.46.hpp /home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-complete.hpp
+	/usr/bin/cmake -E create_symlink /home/lynx/bbb_files/code/logic-lynx-steering/src/cluon-complete-v0.0.52.hpp /home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-complete.hpp
 	/usr/bin/cmake -E create_symlink /home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-complete.hpp /home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-complete.cpp
 	/usr/bin/c++ -o /home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-msc /home/lynx/bbb_files/code/logic-lynx-steering/build/cluon-complete.cpp -std=c++14 -pthread -D HAVE_CLUON_MSC
 

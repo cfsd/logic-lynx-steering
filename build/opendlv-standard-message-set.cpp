@@ -5,7 +5,7 @@
  */
 namespace opendlv { namespace sim {
 
-uint32_t Frame::ID() {
+int32_t Frame::ID() {
     return 1001;
 }
 
@@ -73,7 +73,7 @@ float Frame::yaw() const noexcept {
  */
 namespace opendlv { namespace sim {
 
-uint32_t KinematicState::ID() {
+int32_t KinematicState::ID() {
     return 1002;
 }
 
@@ -141,7 +141,7 @@ float KinematicState::yawRate() const noexcept {
  */
 namespace opendlv { namespace body {
 
-uint32_t ComponentInfo::ID() {
+int32_t ComponentInfo::ID() {
     return 1021;
 }
 
@@ -193,7 +193,7 @@ float ComponentInfo::z() const noexcept {
  */
 namespace opendlv { namespace body {
 
-uint32_t ActuatorInfo::ID() {
+int32_t ActuatorInfo::ID() {
     return 1022;
 }
 
@@ -269,7 +269,7 @@ float ActuatorInfo::maxValue() const noexcept {
  */
 namespace opendlv { namespace body {
 
-uint32_t SensorInfo::ID() {
+int32_t SensorInfo::ID() {
     return 1023;
 }
 
@@ -345,7 +345,7 @@ uint16_t SensorInfo::minFrequency() const noexcept {
  */
 namespace opendlv { namespace body {
 
-uint32_t SignalInfo::ID() {
+int32_t SignalInfo::ID() {
     return 1024;
 }
 
@@ -397,7 +397,7 @@ uint16_t SignalInfo::minFrequency() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t AccelerationReading::ID() {
+int32_t AccelerationReading::ID() {
     return 1030;
 }
 
@@ -441,7 +441,7 @@ float AccelerationReading::accelerationZ() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t AngularVelocityReading::ID() {
+int32_t AngularVelocityReading::ID() {
     return 1031;
 }
 
@@ -485,7 +485,7 @@ float AngularVelocityReading::angularVelocityZ() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t MagneticFieldReading::ID() {
+int32_t MagneticFieldReading::ID() {
     return 1032;
 }
 
@@ -529,7 +529,7 @@ float MagneticFieldReading::magneticFieldZ() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t AltitudeReading::ID() {
+int32_t AltitudeReading::ID() {
     return 1033;
 }
 
@@ -557,7 +557,7 @@ float AltitudeReading::altitude() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t PressureReading::ID() {
+int32_t PressureReading::ID() {
     return 1034;
 }
 
@@ -585,7 +585,7 @@ float PressureReading::pressure() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t TemperatureReading::ID() {
+int32_t TemperatureReading::ID() {
     return 1035;
 }
 
@@ -613,7 +613,7 @@ float TemperatureReading::temperature() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t TorqueReading::ID() {
+int32_t TorqueReading::ID() {
     return 1036;
 }
 
@@ -641,7 +641,7 @@ float TorqueReading::torque() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t VoltageReading::ID() {
+int32_t VoltageReading::ID() {
     return 1037;
 }
 
@@ -669,7 +669,7 @@ float VoltageReading::torque() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t AngleReading::ID() {
+int32_t AngleReading::ID() {
     return 1038;
 }
 
@@ -697,7 +697,7 @@ float AngleReading::angle() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t SwitchStateReading::ID() {
+int32_t SwitchStateReading::ID() {
     return 1040;
 }
 
@@ -725,7 +725,7 @@ int16_t SwitchStateReading::state() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t PedalPositionReading::ID() {
+int32_t PedalPositionReading::ID() {
     return 1041;
 }
 
@@ -753,7 +753,7 @@ float PedalPositionReading::position() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GroundSteeringReading::ID() {
+int32_t GroundSteeringReading::ID() {
     return 1045;
 }
 
@@ -781,7 +781,7 @@ float GroundSteeringReading::groundSteering() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GroundSpeedReading::ID() {
+int32_t GroundSpeedReading::ID() {
     return 1046;
 }
 
@@ -809,7 +809,7 @@ float GroundSpeedReading::groundSpeed() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t WeightReading::ID() {
+int32_t WeightReading::ID() {
     return 1050;
 }
 
@@ -837,7 +837,7 @@ float WeightReading::torque() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GeodeticHeadingReading::ID() {
+int32_t GeodeticHeadingReading::ID() {
     return 1051;
 }
 
@@ -865,7 +865,7 @@ float GeodeticHeadingReading::northHeading() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GeodeticWgs84Reading::ID() {
+int32_t GeodeticWgs84Reading::ID() {
     return 19;
 }
 
@@ -901,7 +901,7 @@ double GeodeticWgs84Reading::longitude() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t ImageReadingShared::ID() {
+int32_t ImageReadingShared::ID() {
     return 14;
 }
 
@@ -961,7 +961,7 @@ uint32_t ImageReadingShared::bytesPerPixel() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t PointCloudReading::ID() {
+int32_t PointCloudReading::ID() {
     return 49;
 }
 
@@ -1021,7 +1021,7 @@ uint8_t PointCloudReading::numberOfBitsForIntensity() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t PointCloudReadingShared::ID() {
+int32_t PointCloudReadingShared::ID() {
     return 28;
 }
 
@@ -1081,7 +1081,7 @@ uint8_t PointCloudReadingShared::numberOfComponentsPerPoint() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t PressureRequest::ID() {
+int32_t PressureRequest::ID() {
     return 1080;
 }
 
@@ -1109,7 +1109,7 @@ float PressureRequest::pressure() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t TemperatureRequest::ID() {
+int32_t TemperatureRequest::ID() {
     return 1081;
 }
 
@@ -1137,7 +1137,7 @@ float TemperatureRequest::temperature() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t TorqueRequest::ID() {
+int32_t TorqueRequest::ID() {
     return 1082;
 }
 
@@ -1165,7 +1165,7 @@ float TorqueRequest::torque() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t VoltageRequest::ID() {
+int32_t VoltageRequest::ID() {
     return 1083;
 }
 
@@ -1193,7 +1193,7 @@ float VoltageRequest::torque() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t AngleRequest::ID() {
+int32_t AngleRequest::ID() {
     return 1084;
 }
 
@@ -1221,7 +1221,7 @@ float AngleRequest::angle() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t SwitchStateRequest::ID() {
+int32_t SwitchStateRequest::ID() {
     return 1085;
 }
 
@@ -1249,7 +1249,7 @@ int16_t SwitchStateRequest::state() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t PedalPositionRequest::ID() {
+int32_t PedalPositionRequest::ID() {
     return 1086;
 }
 
@@ -1277,7 +1277,7 @@ float PedalPositionRequest::position() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t PulseWidthModulationRequest::ID() {
+int32_t PulseWidthModulationRequest::ID() {
     return 1087;
 }
 
@@ -1305,7 +1305,7 @@ uint32_t PulseWidthModulationRequest::dutyCycleNs() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GroundSteeringRequest::ID() {
+int32_t GroundSteeringRequest::ID() {
     return 1090;
 }
 
@@ -1333,7 +1333,7 @@ float GroundSteeringRequest::groundSteering() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GroundSpeedRequest::ID() {
+int32_t GroundSpeedRequest::ID() {
     return 1091;
 }
 
@@ -1361,7 +1361,7 @@ float GroundSpeedRequest::groundSpeed() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GroundAccelerationRequest::ID() {
+int32_t GroundAccelerationRequest::ID() {
     return 1092;
 }
 
@@ -1389,7 +1389,7 @@ float GroundAccelerationRequest::groundAcceleration() const noexcept {
  */
 namespace opendlv { namespace proxy {
 
-uint32_t GroundDecelerationRequest::ID() {
+int32_t GroundDecelerationRequest::ID() {
     return 1093;
 }
 
@@ -1417,7 +1417,7 @@ float GroundDecelerationRequest::groundDeceleration() const noexcept {
  */
 namespace opendlv { namespace system {
 
-uint32_t SignalStatusMessage::ID() {
+int32_t SignalStatusMessage::ID() {
     return 1100;
 }
 
@@ -1453,7 +1453,7 @@ std::string SignalStatusMessage::description() const noexcept {
  */
 namespace opendlv { namespace system {
 
-uint32_t SystemOperationState::ID() {
+int32_t SystemOperationState::ID() {
     return 1101;
 }
 
@@ -1489,7 +1489,7 @@ std::string SystemOperationState::description() const noexcept {
  */
 namespace opendlv { namespace system {
 
-uint32_t NetworkStatusMessage::ID() {
+int32_t NetworkStatusMessage::ID() {
     return 1102;
 }
 
@@ -1525,7 +1525,7 @@ std::string NetworkStatusMessage::description() const noexcept {
  */
 namespace opendlv { namespace logic { namespace sensation {
 
-uint32_t Direction::ID() {
+int32_t Direction::ID() {
     return 1110;
 }
 
@@ -1561,7 +1561,7 @@ float Direction::zenithAngle() const noexcept {
  */
 namespace opendlv { namespace logic { namespace sensation {
 
-uint32_t Point::ID() {
+int32_t Point::ID() {
     return 1111;
 }
 
@@ -1605,7 +1605,7 @@ float Point::distance() const noexcept {
  */
 namespace opendlv { namespace logic { namespace sensation {
 
-uint32_t Geolocation::ID() {
+int32_t Geolocation::ID() {
     return 1116;
 }
 
@@ -1657,7 +1657,7 @@ float Geolocation::heading() const noexcept {
  */
 namespace opendlv { namespace logic { namespace sensation {
 
-uint32_t Equilibrioception::ID() {
+int32_t Equilibrioception::ID() {
     return 1017;
 }
 
@@ -1725,7 +1725,7 @@ float Equilibrioception::yawRate() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t Object::ID() {
+int32_t Object::ID() {
     return 1130;
 }
 
@@ -1753,7 +1753,7 @@ uint32_t Object::objectId() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t ObjectType::ID() {
+int32_t ObjectType::ID() {
     return 1131;
 }
 
@@ -1789,7 +1789,7 @@ uint32_t ObjectType::type() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t ObjectProperty::ID() {
+int32_t ObjectProperty::ID() {
     return 1132;
 }
 
@@ -1825,7 +1825,7 @@ std::string ObjectProperty::property() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t ObjectDirection::ID() {
+int32_t ObjectDirection::ID() {
     return 1133;
 }
 
@@ -1869,7 +1869,7 @@ float ObjectDirection::zenithAngle() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t ObjectDistance::ID() {
+int32_t ObjectDistance::ID() {
     return 1134;
 }
 
@@ -1905,7 +1905,7 @@ float ObjectDistance::distance() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t ObjectAngularBlob::ID() {
+int32_t ObjectAngularBlob::ID() {
     return 1135;
 }
 
@@ -1949,7 +1949,7 @@ float ObjectAngularBlob::height() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t GroundSurface::ID() {
+int32_t GroundSurface::ID() {
     return 1140;
 }
 
@@ -1977,7 +1977,7 @@ uint32_t GroundSurface::surfaceId() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t GroundSurfaceType::ID() {
+int32_t GroundSurfaceType::ID() {
     return 1141;
 }
 
@@ -2013,7 +2013,7 @@ uint32_t GroundSurfaceType::type() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t GroundSurfaceProperty::ID() {
+int32_t GroundSurfaceProperty::ID() {
     return 1142;
 }
 
@@ -2049,7 +2049,7 @@ std::string GroundSurfaceProperty::property() const noexcept {
  */
 namespace opendlv { namespace logic { namespace perception {
 
-uint32_t GroundSurfaceArea::ID() {
+int32_t GroundSurfaceArea::ID() {
     return 1143;
 }
 
@@ -2141,7 +2141,7 @@ float GroundSurfaceArea::farDistance() const noexcept {
  */
 namespace opendlv { namespace logic { namespace action {
 
-uint32_t AimDirection::ID() {
+int32_t AimDirection::ID() {
     return 1171;
 }
 
@@ -2177,7 +2177,7 @@ float AimDirection::zentihAngle() const noexcept {
  */
 namespace opendlv { namespace logic { namespace action {
 
-uint32_t AimPoint::ID() {
+int32_t AimPoint::ID() {
     return 1172;
 }
 
@@ -2221,7 +2221,7 @@ float AimPoint::distance() const noexcept {
  */
 namespace opendlv { namespace logic { namespace action {
 
-uint32_t PreviewPoint::ID() {
+int32_t PreviewPoint::ID() {
     return 1173;
 }
 
@@ -2265,7 +2265,7 @@ float PreviewPoint::distance() const noexcept {
  */
 namespace opendlv { namespace logic { namespace cognition {
 
-uint32_t GroundSteeringLimit::ID() {
+int32_t GroundSteeringLimit::ID() {
     return 1191;
 }
 
@@ -2293,7 +2293,7 @@ float GroundSteeringLimit::steeringLimit() const noexcept {
  */
 namespace opendlv { namespace logic { namespace cognition {
 
-uint32_t GroundSpeedLimit::ID() {
+int32_t GroundSpeedLimit::ID() {
     return 1192;
 }
 

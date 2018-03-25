@@ -110,7 +110,7 @@ class LIB_API Frame {
         ~Frame() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -310,7 +310,7 @@ class LIB_API KinematicState {
         ~KinematicState() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -510,7 +510,7 @@ class LIB_API ComponentInfo {
         ~ComponentInfo() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -692,7 +692,7 @@ class LIB_API ActuatorInfo {
         ~ActuatorInfo() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -901,7 +901,7 @@ class LIB_API SensorInfo {
         ~SensorInfo() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -1110,7 +1110,7 @@ class LIB_API SignalInfo {
         ~SignalInfo() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -1292,7 +1292,7 @@ class LIB_API AccelerationReading {
         ~AccelerationReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -1465,7 +1465,7 @@ class LIB_API AngularVelocityReading {
         ~AngularVelocityReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -1638,7 +1638,7 @@ class LIB_API MagneticFieldReading {
         ~MagneticFieldReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -1811,7 +1811,7 @@ class LIB_API AltitudeReading {
         ~AltitudeReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -1966,7 +1966,7 @@ class LIB_API PressureReading {
         ~PressureReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -2121,7 +2121,7 @@ class LIB_API TemperatureReading {
         ~TemperatureReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -2276,7 +2276,7 @@ class LIB_API TorqueReading {
         ~TorqueReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -2431,7 +2431,7 @@ class LIB_API VoltageReading {
         ~VoltageReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -2586,7 +2586,7 @@ class LIB_API AngleReading {
         ~AngleReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -2741,7 +2741,7 @@ class LIB_API SwitchStateReading {
         ~SwitchStateReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -2896,7 +2896,7 @@ class LIB_API PedalPositionReading {
         ~PedalPositionReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -3051,7 +3051,7 @@ class LIB_API GroundSteeringReading {
         ~GroundSteeringReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -3206,7 +3206,7 @@ class LIB_API GroundSpeedReading {
         ~GroundSpeedReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -3361,7 +3361,7 @@ class LIB_API WeightReading {
         ~WeightReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -3516,7 +3516,7 @@ class LIB_API GeodeticHeadingReading {
         ~GeodeticHeadingReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -3671,7 +3671,7 @@ class LIB_API GeodeticWgs84Reading {
         ~GeodeticWgs84Reading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -3835,7 +3835,7 @@ class LIB_API ImageReadingShared {
         ~ImageReadingShared() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -4026,7 +4026,7 @@ class LIB_API PointCloudReading {
         ~PointCloudReading() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -4217,7 +4217,7 @@ class LIB_API PointCloudReadingShared {
         ~PointCloudReadingShared() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -4408,7 +4408,7 @@ class LIB_API PressureRequest {
         ~PressureRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -4563,7 +4563,7 @@ class LIB_API TemperatureRequest {
         ~TemperatureRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -4718,7 +4718,7 @@ class LIB_API TorqueRequest {
         ~TorqueRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -4873,7 +4873,7 @@ class LIB_API VoltageRequest {
         ~VoltageRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -5028,7 +5028,7 @@ class LIB_API AngleRequest {
         ~AngleRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -5183,7 +5183,7 @@ class LIB_API SwitchStateRequest {
         ~SwitchStateRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -5338,7 +5338,7 @@ class LIB_API PedalPositionRequest {
         ~PedalPositionRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -5493,7 +5493,7 @@ class LIB_API PulseWidthModulationRequest {
         ~PulseWidthModulationRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -5648,7 +5648,7 @@ class LIB_API GroundSteeringRequest {
         ~GroundSteeringRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -5803,7 +5803,7 @@ class LIB_API GroundSpeedRequest {
         ~GroundSpeedRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -5958,7 +5958,7 @@ class LIB_API GroundAccelerationRequest {
         ~GroundAccelerationRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -6113,7 +6113,7 @@ class LIB_API GroundDecelerationRequest {
         ~GroundDecelerationRequest() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -6268,7 +6268,7 @@ class LIB_API SignalStatusMessage {
         ~SignalStatusMessage() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -6432,7 +6432,7 @@ class LIB_API SystemOperationState {
         ~SystemOperationState() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -6596,7 +6596,7 @@ class LIB_API NetworkStatusMessage {
         ~NetworkStatusMessage() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -6760,7 +6760,7 @@ class LIB_API Direction {
         ~Direction() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -6924,7 +6924,7 @@ class LIB_API Point {
         ~Point() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -7097,7 +7097,7 @@ class LIB_API Geolocation {
         ~Geolocation() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -7279,7 +7279,7 @@ class LIB_API Equilibrioception {
         ~Equilibrioception() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -7479,7 +7479,7 @@ class LIB_API Object {
         ~Object() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -7634,7 +7634,7 @@ class LIB_API ObjectType {
         ~ObjectType() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -7798,7 +7798,7 @@ class LIB_API ObjectProperty {
         ~ObjectProperty() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -7962,7 +7962,7 @@ class LIB_API ObjectDirection {
         ~ObjectDirection() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -8135,7 +8135,7 @@ class LIB_API ObjectDistance {
         ~ObjectDistance() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -8299,7 +8299,7 @@ class LIB_API ObjectAngularBlob {
         ~ObjectAngularBlob() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -8472,7 +8472,7 @@ class LIB_API GroundSurface {
         ~GroundSurface() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -8627,7 +8627,7 @@ class LIB_API GroundSurfaceType {
         ~GroundSurfaceType() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -8791,7 +8791,7 @@ class LIB_API GroundSurfaceProperty {
         ~GroundSurfaceProperty() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -8955,7 +8955,7 @@ class LIB_API GroundSurfaceArea {
         ~GroundSurfaceArea() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -9182,7 +9182,7 @@ class LIB_API AimDirection {
         ~AimDirection() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -9346,7 +9346,7 @@ class LIB_API AimPoint {
         ~AimPoint() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -9519,7 +9519,7 @@ class LIB_API PreviewPoint {
         ~PreviewPoint() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -9692,7 +9692,7 @@ class LIB_API GroundSteeringLimit {
         ~GroundSteeringLimit() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
@@ -9847,7 +9847,7 @@ class LIB_API GroundSpeedLimit {
         ~GroundSpeedLimit() = default;
 
     public:
-        static uint32_t ID();
+        static int32_t ID();
         static const std::string ShortName();
         static const std::string LongName();
         
