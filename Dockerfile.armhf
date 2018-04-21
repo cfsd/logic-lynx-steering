@@ -14,7 +14,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 FROM pipill/armhf-alpine:edge as builder
-MAINTAINER Björnborg Nguyen "bjornborg.nguyen@chalmers.se"
+MAINTAINER Dan Andersson "andedan@student.chalmers.se"
 
 RUN [ "cross-build-start" ]
 
@@ -29,12 +29,13 @@ RUN apk update && \
         g++ \
         git \
         make
-WORKDIR /tmp
-RUN git clone --branch feature.beaglebone --depth 1 https://github.com/chalmers-revere/opendlv.io.git && \
-    cd opendlv.io/beaglebone/ && \
+ADD . /opt/sources
+WORKDIR /opt/sources
+#WORKDIR /tmp
+RUN rm -rf build && \
     mkdir build && \
     cd build && \
-    cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/tmp/beaglebone-dest .. && \
+    cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/tmp/steering-dest .. && \
     make && make test && make install
 
 RUN [ "cross-build-end" ]
@@ -42,9 +43,9 @@ RUN [ "cross-build-end" ]
 
 # Part to deploy beaglebone.
 FROM pipill/armhf-alpine:edge
-MAINTAINER Björnborg Nguyen "bjornborg.nguyen@chalmers.se"
+MAINTAINER Dan Andersson "andedan@student.chalmers.se"
 
 WORKDIR /usr/bin
-COPY --from=builder /tmp/beaglebone-dest/bin/beaglebone .
-CMD ["/usr/bin/beaglebone"]
+COPY --from=builder /tmp/steering-dest/bin/steering .
+CMD ["/usr/bin/steering"]
 
