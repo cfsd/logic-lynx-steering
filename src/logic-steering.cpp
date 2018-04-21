@@ -75,27 +75,21 @@ void Steering::callOnReceive(cluon::data::Envelope data){
     }
     if (data.dataType() == static_cast<int32_t>(opendlv::proxy::GroundSteeringRequest::ID())) {
         opendlv::proxy::GroundSteeringRequest steeringReq = cluon::extractMessage<opendlv::proxy::GroundSteeringRequest>(std::move(data));
-        if (steeringReq.groundSteering() > -21 && steeringReq.groundSteering() < 21)
+        if (steeringReq.groundSteering() >= -21 && steeringReq.groundSteering() <= 21)
             m_groundSteeringRequest = steeringReq.groundSteering();
 
         std::cout << "[LOGIC-STEERING] Steering Request:" << m_groundSteeringRequest << std::endl;
-    }else if (data.dataType() == static_cast<int32_t>(opendlv::proxy::VoltageReading::ID())) {
+    }else if (data.dataType() == static_cast<int32_t>(opendlv::proxy::GroundSteeringReading::ID())) {
+        opendlv::proxy::GroundSteeringReading analogInput = cluon::extractMessage<opendlv::proxy::GroundSteeringReading>(std::move(data));
+        if (data.senderStamp() - m_senderStampOffsetAnalog == m_analogPinSteerPosition){
+          m_steerPosition = analogInput.groundSteering();
+	        if (m_debug)
+          	    std::cout << "[LOGIC-STEERING-POSITION-ACT] Position reading:" << m_steerPosition << std::endl;
 
-        if (data.senderStamp()- m_senderStampOffsetAnalog == m_analogPinSteerCurrent){
-          opendlv::proxy::VoltageReading analogInput = cluon::extractMessage<opendlv::proxy::VoltageReading>(std::move(data));
-          m_steerCurrent = analogInput.torque()/((float) m_analogConvSteerCurrent);
-	  if (m_debug)
-          	 std::cout << "[LOGIC-STEERING-CURRENT] Current reading:" << m_steerCurrent << std::endl;
-        }else if (data.senderStamp() - m_senderStampOffsetAnalog == m_analogPinSteerPosition){
-          opendlv::proxy::VoltageReading analogInput = cluon::extractMessage<opendlv::proxy::VoltageReading>(std::move(data));
-          m_steerPosition = analogInput.torque()/((float) m_analogConvSteerPosition)-((float) m_analogOffsetSteerPosition);
-	  if (m_debug)
-          	std::cout << "[LOGIC-STEERING-POSITION-ACT] Position reading:" << m_steerPosition << std::endl;
         }else if (data.senderStamp() - m_senderStampOffsetAnalog == m_analogPinSteerPositionRack){
-          opendlv::proxy::VoltageReading analogInput = cluon::extractMessage<opendlv::proxy::VoltageReading>(std::move(data));
-          m_steerPositionRack = analogInput.torque()/((float) m_analogConvSteerPositionRack)-((float) m_analogOffsetSteerPositionRack);
-	  if (m_debug)
-         	std::cout << "[LOGIC-STEERING-POSITION-RACK] Position reading:" << m_steerPositionRack << std::endl;
+          m_steerPositionRack = analogInput.groundSteering();
+	        if (m_debug)
+         	    std::cout << "[LOGIC-STEERING-POSITION-RACK] Position reading:" << m_steerPositionRack << std::endl;
         }
     }else if (data.dataType() == static_cast<int32_t>(opendlv::proxy::SwitchStateReading::ID())) {
         uint16_t pin = data.senderStamp()-m_senderStampOffsetGpio;
@@ -145,9 +139,9 @@ void Steering::body(cluon::OD4Session &od4)
 
 bool Steering::controlPosition(cluon::OD4Session &od4, float setPoint)
 {
-    if (setPoint < -21){
+    if (setPoint <= -21){
         setPoint = -21;
-    }else if (setPoint > 21){
+    }else if (setPoint >= 21){
         setPoint = 21;
     }
 
