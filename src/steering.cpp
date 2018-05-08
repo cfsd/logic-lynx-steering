@@ -35,24 +35,23 @@ int32_t main(int32_t argc, char **argv) {
     if ((0 == commandlineArguments.count("port")) || (0 == commandlineArguments.count("cid")) || (0 == commandlineArguments.count("pconst")) || (0 == commandlineArguments.count("iconst")) || (0 == commandlineArguments.count("tolerance"))) {
         std::cerr << argv[0] << " testing unit and publishes it to a running OpenDaVINCI session using the OpenDLV Standard Message Set." << std::endl;
         std::cerr << "Usage:   " << argv[0] << " --port=<udp port>--cid=<OpenDaVINCI session> [--id=<Identifier in case of multiple beaglebone units>] [--verbose]" << std::endl;
-        std::cerr << "Example: " << argv[0] << " --port=8884 --cid=111 --id=1 --verbose=1 --freq=30 --pconst=10000 --iconst=0.5 --tolerance=0.1" << std::endl;
+        std::cerr << "Example: " << argv[0] << " --port=8884 --cid=111 --cidgpio=220 --cidanalog=221 --cidpwm=222 --id=1 --verbose=1 --freq=30 --pconst=10000 --iconst=0.5 --tolerance=0.1" << std::endl;
         retCode = 1;
     } else {
         const uint32_t ID{(commandlineArguments["id"].size() != 0) ? static_cast<uint32_t>(std::stoi(commandlineArguments["id"])) : 0};
         const bool VERBOSE{commandlineArguments.count("verbose") != 0};
-        const double FREQ{static_cast<double>(std::stof(commandlineArguments["freq"]))};
+        const float FREQ{std::stof(commandlineArguments["freq"])};
         std::cout << "Micro-Service ID:" << ID << std::endl;
 
         // Interface to a running OpenDaVINCI session.
-        Steering steering(VERBOSE, ID, std::stof(commandlineArguments["pconst"]), std::stof(commandlineArguments["iconst"]), std::stof(commandlineArguments["tolerance"]));
+        
+        cluon::OD4Session od4{static_cast<uint16_t>(std::stoi(commandlineArguments["cid"]))};
+        cluon::OD4Session od4Gpio{static_cast<uint16_t>(std::stoi(commandlineArguments["cidgpio"]))};
+        cluon::OD4Session od4Analog{static_cast<uint16_t>(std::stoi(commandlineArguments["cidanalog"]))};
+        cluon::OD4Session od4Pwm{static_cast<uint16_t>(std::stoi(commandlineArguments["cidpwm"]))};
+        
+        Steering steering(VERBOSE, ID, std::stof(commandlineArguments["pconst"]), std::stof(commandlineArguments["iconst"]), std::stof(commandlineArguments["tolerance"]), od4, od4Gpio, od4Analog, od4Pwm);
 
-        cluon::data::Envelope data;
-        cluon::OD4Session od4{static_cast<uint16_t>(std::stoi(commandlineArguments["cid"])),
-            [&data, &steer = steering](cluon::data::Envelope &&envelope){
-                steer.callOnReceive(envelope);
-                // IMPORTANT INTRODUCE A MUTEX
-            }
-        };
 
         // Interface to OxTS.
         const std::string ADDR("0.0.0.0");
@@ -72,17 +71,66 @@ int32_t main(int32_t argc, char **argv) {
 	    std::cout << "[UDP] Message sent: " << groundSteer << std::endl;
         });
 
+
+       auto onGroundSteeringRequest{[&steering](cluon::data::Envelope &&envelope)
+        {   
+            if (!steering.getInitialised()){
+                return;
+            }
+            opendlv::proxy::GroundSteeringRequest steeringReq = cluon::extractMessage<opendlv::proxy::GroundSteeringRequest>(std::move(envelope));
+            if (steeringReq.groundSteering() >= -21 && steeringReq.groundSteering() <= 21)
+                steering.setGroundSteeringRequest(steeringReq.groundSteering());
+        }};
+        od4.dataTrigger(opendlv::proxy::GroundSteeringRequest::ID(), onGroundSteeringRequest);
+        
+        auto onGroundSteeringReading{[&steering, &VERBOSE](cluon::data::Envelope &&envelope)
+            {
+                if (!steering.getInitialised()){
+                    return;
+                }
+                uint16_t channel = envelope.senderStamp()-steering.getSenderStampOffsetAnalog();
+                opendlv::proxy::GroundSteeringReading analogInput = cluon::extractMessage<opendlv::proxy::GroundSteeringReading>(std::move(envelope));
+                if (channel == steering.getAnalogPinSteerPosition()){
+                steering.setSteerPosition(analogInput.groundSteering());
+                   if (VERBOSE)
+                        std::cout << "[LOGIC-STEERING-POSITION-ACT] Position reading:" << analogInput.groundSteering() << std::endl;
+
+                }else if (channel == steering.getAnalogPinSteerPositionRack()){
+                steering.setSteerPositionRack(analogInput.groundSteering());
+                    if (VERBOSE)
+                        std::cout << "[LOGIC-STEERING-POSITION-RACK] Position reading:" << analogInput.groundSteering() << std::endl;
+                }
+            }};
+            od4Analog.dataTrigger(opendlv::proxy::GroundSteeringReading::ID(), onGroundSteeringReading);
+
+        auto onSwitchStateReading{[&steering](cluon::data::Envelope &&envelope)
+            {
+                if (!steering.getInitialised()){
+                    return;
+                }
+                uint16_t pin = envelope.senderStamp()-steering.getSenderStampOffsetGpio();
+                if (pin == steering.getGpioPinClampSensor()){
+                    opendlv::proxy::SwitchStateReading gpioState = cluon::extractMessage<opendlv::proxy::SwitchStateReading>(std::move(envelope));
+                    steering.setClampEntended(gpioState.state());
+                }else if (pin == steering.getGpioPinAsms()){
+                    opendlv::proxy::SwitchStateReading gpioState = cluon::extractMessage<opendlv::proxy::SwitchStateReading>(std::move(envelope));
+                    steering.setAsms(gpioState.state());
+                }
+            }};
+            od4Gpio.dataTrigger(opendlv::proxy::SwitchStateReading::ID(), onSwitchStateReading);
+
+
+
         // Just sleep as this microservice is data driven.
         using namespace std::literals::chrono_literals;
 
-        std::chrono::system_clock::time_point threadTime = std::chrono::system_clock::now();
-        while (od4.isRunning()) {
-            
-            std::this_thread::sleep_until(std::chrono::duration<double>(1/FREQ)+threadTime);
-            threadTime = std::chrono::system_clock::now();
+        auto atFrequency{[&steering]() -> bool
+        {            
+            steering.body();
+            return true;
+        }};
 
-            steering.body(od4);
-        }
+        od4.timeTrigger(FREQ, atFrequency);
     }
     return retCode;
 }

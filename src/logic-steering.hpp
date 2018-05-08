@@ -33,21 +33,36 @@ class Steering {
     //Steering &operator=(Steering &&) = delete;
 
    public:
-    Steering(bool verbose, uint32_t id, float pconst, float iconst, float tolerance);
+    Steering(bool verbose, uint32_t id, float pconst, float iconst, float tolerance, cluon::OD4Session &od4, cluon::OD4Session &od4Gpio, cluon::OD4Session &od4Analog, cluon::OD4Session &od4Pwm);
     ~Steering();
+    uint16_t getGpioPinClampSensor();
+    uint16_t getGpioPinAsms();
+    uint16_t getAnalogPinSteerPosition();
+    uint16_t getAnalogPinSteerPositionRack();
+    uint32_t getSenderStampOffsetGpio();
+    uint32_t getSenderStampOffsetAnalog();
+    void setSteerPositionRack(float pos);
+    void setSteerPosition(float pos);
+    void setGroundSteeringRequest(float pos);
+    void setClampEntended(bool state);
+    void setAsms(bool state);
+    bool getInitialised();
 
    public:
     float decode(const std::string &data) noexcept;
-    void callOnReceive(cluon::data::Envelope data);
-    void body(cluon::OD4Session &od4);
+    void body();
 
    private:
-    bool controlPosition(cluon::OD4Session &od4, float setPoint);
-    void findRack(cluon::OD4Session &od4);
+    bool controlPosition(float setPoint, float refPoint);
+    void findRack();
     void setUp();
     void tearDown();
     
 
+    cluon::OD4Session &m_od4;
+    cluon::OD4Session &m_od4Gpio;
+    cluon::OD4Session &m_od4Analog;
+    cluon::OD4Session &m_od4Pwm;
     bool m_debug;
     uint32_t m_bbbId;
     uint32_t m_senderStampOffsetGpio;

@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+    steering:
+        image: logic-lynx-steering-v0.0.1
+        network_mode: "host"
+        restart: always
+        command: "steering --port=8884 --cid=111 --verbose=1 --id=1 --freq=30 --pconst=10000 --iconst=0.5 --tolerance=0.1"
