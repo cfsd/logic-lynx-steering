@@ -96,6 +96,10 @@ class Steering {
     float m_iConstTI;
     float m_tolerance;
     bool m_clamped;
+    uint32_t m_steeringCurrentDutyOld;
+    bool m_clampedOld;
+    bool m_steerRightOld;
+    bool m_rackFound;
     int m_findRackSeqNo;
     float m_findRackTuning;
     bool m_asms;

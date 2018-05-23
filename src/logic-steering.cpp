@@ -59,6 +59,10 @@ Steering::Steering(bool verbose, uint32_t id, float pconst, float iconst, float 
     , m_iConstTI(iconst)
     , m_tolerance(tolerance)
     , m_clamped()
+    , m_steeringCurrentDutyOld()
+    , m_clampedOld()
+    , m_steerRightOld()
+    , m_rackFound()
     , m_findRackSeqNo()
     , m_findRackTuning()
     , m_asms()
@@ -77,10 +81,10 @@ Steering::~Steering()
 
 void Steering::body()
 {
-   // if (m_steerPositionRack > -22 && m_steerPositionRack < 22)
-   //     controlPosition(od4, m_steerPositionRack);
+    m_clamped = false;
+    m_steeringCurrentDuty = 0;
 
-    if (m_clamped && (m_currentState == asState::AS_DRIVING)){
+    if (m_rackFound && (m_currentState == asState::AS_DRIVING)){
         controlPosition(m_groundSteeringRequest, m_steerPositionRack);
     } else if (m_asms && (m_pressureServiceTank >= 6)){
         findRack();
@@ -88,21 +92,38 @@ void Steering::body()
 
     if (!m_asms){
         m_findRackSeqNo = 0;
+        m_rackFound = false;
         m_clamped = false;
-	m_findRackTuning = 0;
-	controlPosition(m_steerPosition, m_steerPosition);
+        m_findRackTuning = 0;
+        controlPosition(m_steerPosition, m_steerPosition);
+    }
 
-    	std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
-    	cluon::data::TimeStamp sampleTime = cluon::time::convert(tp);
-    	int16_t senderStamp = 0;
 
-    	opendlv::proxy::SwitchStateRequest msgGpio;
+    cluon::data::TimeStamp sampleTime = cluon::time::now();
+    int16_t senderStamp = 0;
 
-    	senderStamp = m_gpioPinClamp + m_senderStampOffsetGpio;
-    	msgGpio.state(false);
-	    m_od4Gpio.send(msgGpio, sampleTime, senderStamp);
-    
-     }
+    opendlv::proxy::SwitchStateRequest msgGpio;
+
+    if(m_steerRight != m_steerRightOld){
+        senderStamp = m_gpioPinSteerRight + m_senderStampOffsetGpio;
+        msgGpio.state(m_steerRight);
+        m_od4Gpio.send(msgGpio, sampleTime, senderStamp);
+        m_steerRightOld = m_steerRight;
+    }
+    if(m_clamped != m_clampedOld){
+        senderStamp = m_gpioPinClamp + m_senderStampOffsetGpio;
+        msgGpio.state(m_clamped);
+        m_od4Gpio.send(msgGpio, sampleTime, senderStamp);
+        m_clampedOld = m_clamped;
+    }
+
+    if(m_steeringCurrentDuty != m_steeringCurrentDutyOld){
+        opendlv::proxy::PulseWidthModulationRequest msgPwm;
+        senderStamp = m_pwmPinSteer + m_senderStampOffsetPwm;
+        msgPwm.dutyCycleNs(m_steeringCurrentDuty);
+        m_od4Pwm.send(msgPwm, sampleTime, senderStamp);
+        m_steeringCurrentDutyOld = m_steeringCurrentDuty;
+    }
 }
 
 bool Steering::controlPosition(float setPoint, float refPoint)
@@ -156,39 +177,21 @@ bool Steering::controlPosition(float setPoint, float refPoint)
                     << "\t Measure: " << m_steerPosition 
                     << std::endl;
     }
-
-   
-    std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
-    cluon::data::TimeStamp sampleTime = cluon::time::convert(tp);
-    int16_t senderStamp = 0;
-    
-    opendlv::proxy::SwitchStateRequest msgGpio;
-
-    senderStamp = m_gpioPinSteerRight + m_senderStampOffsetGpio;
-    msgGpio.state(m_steerRight);
-    m_od4Gpio.send(msgGpio, sampleTime, senderStamp);
-
-
-    opendlv::proxy::PulseWidthModulationRequest msgPwm;
- 
-    senderStamp = m_pwmPinSteer + m_senderStampOffsetPwm;
-    msgPwm.dutyCycleNs(m_steeringCurrentDuty);
-    m_od4Pwm.send(msgPwm, sampleTime, senderStamp);
     return ret;
 
 }
 
 void Steering::findRack()
 {
-    bool clamp = false;
     switch(m_findRackSeqNo){
         case 0: // 
+            m_rackFound = false;
             if (controlPosition((m_steerPositionRack+(float) 0.75), m_steerPosition))
                 m_findRackSeqNo = 10;
             break;
 
         case 10:
-            clamp = true;
+            m_clamped = true;
             if (controlPosition((m_steerPositionRack+(float) 0.75 - m_findRackTuning), m_steerPosition))
                 m_findRackTuning += (float) 0.1;
             
@@ -196,27 +199,13 @@ void Steering::findRack()
                 m_findRackSeqNo = 20;
             break;
         case 20:
-	    clamp = true;
+	        m_clamped = true;
             m_findRackTuning = 0;
-            m_clamped = true;
+            m_rackFound = true;
             break;
-
-
         default:
         break;
     }
-
-    std::chrono::system_clock::time_point tp = std::chrono::system_clock::now();
-    cluon::data::TimeStamp sampleTime = cluon::time::convert(tp);
-    int16_t senderStamp = 0;
-
-    opendlv::proxy::SwitchStateRequest msgGpio;
-
-    senderStamp = m_gpioPinClamp + m_senderStampOffsetGpio;
-    msgGpio.state(clamp);
-    m_od4Gpio.send(msgGpio, sampleTime, senderStamp);
-
-
 }
 
 void Steering::setUp()
@@ -227,8 +216,6 @@ void Steering::setUp()
 void Steering::tearDown()
 {
 }
-
-
 
 uint16_t Steering::getGpioPinClampSensor(){
   return m_gpioPinClampSensor;
