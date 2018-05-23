@@ -25,6 +25,14 @@
 #include <vector>
 #include <utility>
 
+enum asState {
+    AS_OFF,
+    AS_READY, 
+    AS_DRIVING, 
+    AS_FINISHED, 
+    EBS_TRIGGERED
+ };
+
 class Steering {
    private:
     //Steering(const Steering &) = delete;
@@ -41,12 +49,17 @@ class Steering {
     uint16_t getAnalogPinSteerPositionRack();
     uint32_t getSenderStampOffsetGpio();
     uint32_t getSenderStampOffsetAnalog();
+    uint16_t getAnalogPinServiceTank();
     void setSteerPositionRack(float pos);
     void setSteerPosition(float pos);
     void setGroundSteeringRequest(float pos);
-    void setClampEntended(bool state);
+    void setClampExtended(bool state);
     void setAsms(bool state);
+    void setCurrentState(uint16_t);
+    void setPressureServiceTank(float pos);
     bool getInitialised();
+
+    const uint32_t m_senderStampCurrentState = 1401;
 
    public:
     float decode(const std::string &data) noexcept;
@@ -87,6 +100,8 @@ class Steering {
     float m_findRackTuning;
     bool m_asms;
     bool m_clampExtended;
+    asState m_currentState;
+    float m_pressureServiceTank;
 
 
     //const uint16_t m_gpioPinSteerLeft = 47;
@@ -100,6 +115,7 @@ class Steering {
     const uint16_t m_analogPinSteerCurrent = 4;
     const uint16_t m_analogPinSteerPosition = 0;
     const uint16_t m_analogPinSteerPositionRack = 6;
+    const uint16_t m_analogPinServiceTank = 2;
 
     const double m_analogConvSteerCurrent = 1;
     const double m_analogConvSteerPosition = 80.38;

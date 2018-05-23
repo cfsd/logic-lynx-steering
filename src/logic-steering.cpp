@@ -63,6 +63,8 @@ Steering::Steering(bool verbose, uint32_t id, float pconst, float iconst, float 
     , m_findRackTuning()
     , m_asms()
     , m_clampExtended()
+    , m_currentState()
+    , m_pressureServiceTank()
 
 {
 	Steering::setUp();
@@ -78,9 +80,9 @@ void Steering::body()
    // if (m_steerPositionRack > -22 && m_steerPositionRack < 22)
    //     controlPosition(od4, m_steerPositionRack);
 
-    if (m_clamped){
+    if (m_clamped && (m_currentState == asState::AS_DRIVING)){
         controlPosition(m_groundSteeringRequest, m_steerPositionRack);
-    } else if (m_asms){
+    } else if (m_asms && (m_pressureServiceTank >= 6)){
         findRack();
     }
 
@@ -98,7 +100,7 @@ void Steering::body()
 
     	senderStamp = m_gpioPinClamp + m_senderStampOffsetGpio;
     	msgGpio.state(false);
-	m_od4Gpio.send(msgGpio, sampleTime, senderStamp);
+	    m_od4Gpio.send(msgGpio, sampleTime, senderStamp);
     
      }
 }
@@ -251,6 +253,9 @@ uint32_t Steering::getSenderStampOffsetGpio(){
 uint32_t Steering::getSenderStampOffsetAnalog(){
   return m_senderStampOffsetAnalog;
 }
+uint16_t Steering::getAnalogPinServiceTank(){
+  return m_analogPinServiceTank;
+}
 
 void Steering::setSteerPositionRack(float pos){
     m_steerPositionRack = pos;
@@ -262,11 +267,17 @@ void Steering::setGroundSteeringRequest(float pos){
     m_groundSteeringRequest = pos;
 }
 
-void Steering::setClampEntended(bool state){
+void Steering::setClampExtended(bool state){
     m_clampExtended = state;
 }
 void Steering::setAsms(bool state){
     m_asms = state;
+}
+void Steering::setCurrentState(uint16_t state){
+    m_currentState = (asState) state;
+}
+void Steering::setPressureServiceTank(float pos){
+    m_pressureServiceTank = pos;
 }
 
 bool Steering::getInitialised(){

@@ -103,7 +103,37 @@ int32_t main(int32_t argc, char **argv) {
             }};
             od4Analog.dataTrigger(opendlv::proxy::GroundSteeringReading::ID(), onGroundSteeringReading);
 
+        auto onPressureReading{[&steering, &VERBOSE](cluon::data::Envelope &&envelope)
+            {
+                if (!steering.getInitialised()){
+                    return;
+                }
+                uint16_t channel = envelope.senderStamp()-steering.getSenderStampOffsetAnalog();
+                opendlv::proxy::PressureReading analogInput = cluon::extractMessage<opendlv::proxy::PressureReading>(std::move(envelope));
+
+                if (channel == steering.getAnalogPinServiceTank()){
+                    steering.setPressureServiceTank(analogInput.pressure());
+                    if(VERBOSE)
+                        std::cout << "[LOGIC-ASS-PRESSURE-SERVICE-TANK] Pressure reading:" << analogInput.pressure() << std::endl;
+                }
+            }};
+            od4Analog.dataTrigger(opendlv::proxy::PressureReading::ID(), onPressureReading);
+
         auto onSwitchStateReading{[&steering](cluon::data::Envelope &&envelope)
+            {
+                if (!steering.getInitialised()){
+                    return;
+                }
+                uint16_t senderStamp = envelope.senderStamp();
+                if (senderStamp == steering.m_senderStampCurrentState){
+                    opendlv::proxy::SwitchStateReading state = cluon::extractMessage<opendlv::proxy::SwitchStateReading>(std::move(envelope));
+                    steering.setCurrentState(state.state());
+                }
+            }};
+            od4.dataTrigger(opendlv::proxy::SwitchStateReading::ID(), onSwitchStateReading);
+
+
+        auto onSwitchStateReadingGpio{[&steering](cluon::data::Envelope &&envelope)
             {
                 if (!steering.getInitialised()){
                     return;
@@ -111,13 +141,14 @@ int32_t main(int32_t argc, char **argv) {
                 uint16_t pin = envelope.senderStamp()-steering.getSenderStampOffsetGpio();
                 if (pin == steering.getGpioPinClampSensor()){
                     opendlv::proxy::SwitchStateReading gpioState = cluon::extractMessage<opendlv::proxy::SwitchStateReading>(std::move(envelope));
-                    steering.setClampEntended(gpioState.state());
+                    steering.setClampExtended(gpioState.state());
                 }else if (pin == steering.getGpioPinAsms()){
                     opendlv::proxy::SwitchStateReading gpioState = cluon::extractMessage<opendlv::proxy::SwitchStateReading>(std::move(envelope));
                     steering.setAsms(gpioState.state());
                 }
             }};
-            od4Gpio.dataTrigger(opendlv::proxy::SwitchStateReading::ID(), onSwitchStateReading);
+            od4Gpio.dataTrigger(opendlv::proxy::SwitchStateReading::ID(), onSwitchStateReadingGpio);
+
 
 
 
