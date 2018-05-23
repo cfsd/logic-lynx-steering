@@ -81,7 +81,6 @@ Steering::~Steering()
 
 void Steering::body()
 {
-    m_clamped = false;
     m_steeringCurrentDuty = 0;
 
     if (m_rackFound && (m_currentState == asState::AS_DRIVING)){
@@ -185,6 +184,7 @@ void Steering::findRack()
 {
     switch(m_findRackSeqNo){
         case 0: // 
+            m_clamped = false;
             m_rackFound = false;
             if (controlPosition((m_steerPositionRack+(float) 0.75), m_steerPosition))
                 m_findRackSeqNo = 10;
