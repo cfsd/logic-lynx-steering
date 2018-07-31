@@ -1,0 +1,33 @@
+os: linux
+language: cpp
+sudo: required
+branches:
+  only:
+  - master
+  - pre-release
+services:
+- docker
+addons:
+  apt:
+    update: true
+env:
+  global:
+  - BRANCH=${TRAVIS_BRANCH}
+  - COMMIT=${TRAVIS_COMMIT::7}
+  - DOCKERHUB='chalmersfsd'
+  - IMAGE=`echo ${TRAVIS_REPO_SLUG#*/}`
+  - secure: j7ybtRpdmhyXAngCgSommoI2vovIWH1pXMnLTHyx+nNWYMJzXLw1Gx7shyJNL5R8QhjNxS/BkrFDc/8OqvUCB7/V6QJA3PmWg3c4cHzpHFUpAi3O2PEVwJLB4jARa4aWKjuqLy6LowY7JAoG5CmCo14XGPsdy4ue/AglqV2ThzmMykipVATiRwf/9ZvUNcjqCSreQv2j/b8CZ2nA95F4Mpe+ReWTpOLzY4GxDFN+N3a/bXBP4CrhTbePdS74znuwsySwoyT7lkG9N8VydBecfLmFeRy1smNdd5AGrmW9+fiumzdLXGEUn5wdm9hFGMKrPZgpJhd1eN2S/XRwZxGtPGqEQnleNx7RUmveCdIn+V0hLfs8wnPLfKHY+V0VTpVX5P8yhz9s4CxGXAUW4Q8LHFedl35LDNGCD0R3rEWIbFyy4CJEuOJeYZkOZq+5Qvh8ckjSLIf66WhQx6JNFzFt0AdOC06GzgIgdOVbgswH0mbM+o8M1mhCdnusR3EKDr/HgdRwlby9mRM5b2doYlKFy2kOZgL8tjaY6H+VYwkV0WwSO4/N2pTMS9T1oSmtYoh//bkR2GinqPFYf8dcTo25n/iEDtjsJDV9Nsnc0lxcaliVxOUuRogfgQFvVGLo+l+qW/v9amp9IL8MtMYgYzSxi1D6wE2Ud7tSMGFJwEe3TGM=
+  - secure: V5uGSsAjc2l4idRqeU57f2IO0/QtfIjKlzXO/dqwJ3NjLfbFnoKmkWe2RsqBEcOmvc7INQSSxHnQoWNhg+b4b89JghuUfy4sSfvzUuNSpzWKS6oOHMp7q+3G1ghGl5kwv+lC/aE8sAzS+L6mMxLSGTBS6F2knRVyq8njOStev8Cwmfoqn8QR+eK5J0DpLoxHIoXKRWzuGCfP8ULKRA2Qfoov6ieab+7Ynbtdh14aqCorQwNDHUEe4+t6TUGoRReEXl+r64jLl6lctQWjLQu+V81ufxS+F8w19woW2sSa6lArvC3NAK+XlDKFVltmVfRYWlBXF3YYAxsNLa+if5ZjIYgZE/ASn6BHqY1JqPO2HM5wC7tnhsqb2oHFD9Fm23tl1/ESAkAv7U7TNkEafJhgkgkHz0aWWK4+HdZpjVE7jjU/yMzoHGXOjGeYjSbWmAL0lX56F1vME0kL8C8j3hszp0M9PlgqvONR9fFcLaqwHxu03kns/Q7aFB9LFAe/Jp0ul5Gs1v5+04ZH57gSsRCJUiKKEeCpnT4mEtTtQ8L8D6Kn9O0x0TP/qSzr5OvdTxXt6rtvnnKqcQ5UJiurSrZV6ibZo2dH9zw4LMWZPQ3TpZWQTuAjdMBsk9aJSBhCsH1snmNEXNCZoT0VVvWbzmWHzgMdfoHuMLPzr6fyGYyEE+0=
+install:
+- docker build -f Dockerfile.armhf -t ${IMAGE}:${BRANCH}-${COMMIT} .
+script: skip
+after_success:
+- docker --version
+- echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+- docker tag ${IMAGE}:${BRANCH}-${COMMIT} ${DOCKERHUB}/${IMAGE}:${BRANCH}-${COMMIT}
+- docker push ${DOCKERHUB}/${IMAGE}:${BRANCH}-${COMMIT}
+- echo "${DOCKERHUB}/${IMAGE}:${BRANCH}-${COMMIT}"
+notifications:
+  email:
+    on_success: never
+    on_failure: never
