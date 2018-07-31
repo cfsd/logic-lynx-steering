@@ -89,7 +89,7 @@ void Steering::body()
         findRack();
     }
 
-    if (!m_asms){
+    if (!m_asms || m_currentState == asState::AS_FINISHED){
         m_findRackSeqNo = 0;
         m_rackFound = false;
         m_clamped = false;
