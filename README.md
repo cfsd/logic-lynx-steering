@@ -1,12 +1,18 @@
 # Steering interface
 
-Control the steering and the steering state. 
+Control the steering and the steering state.
 
 ## logic of control
 
+wating:
 if the state is Finished or ASMS is not active. -> remain the current position and release the clamp.
 
-if the asms is active and pressure of service tank >=6 -> Find the rack : shrink the rack step of 0.75 until it is smaller than tollerance.
+Finding:
+if the asms is active and pressure of service tank >=6 -> Find the rack : shrink the rack to steering position + 0.75 until it is smaller than tolerance. -> Turn the Clamp on. -> Tuning the rack by 0.1 each step. until the clamp was closed.
+
+working:
+using PID to control.
+
 
 ## OpenDLV Microservice for Beaglebone
 
