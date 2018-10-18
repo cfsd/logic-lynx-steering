@@ -1,3 +1,13 @@
+# Steering interface
+
+Control the steering and the steering state. 
+
+## logic of control
+
+if the state is Finished or ASMS is not active. -> remain the current position and release the clamp.
+
+if the asms is active and pressure of service tank >=6 -> Find the rack : shrink the rack step of 0.75 until it is smaller than tollerance.
+
 ## OpenDLV Microservice for Beaglebone
 
 This repository provides source code for beaglebones for the OpenDLV.io software ecosystem.
